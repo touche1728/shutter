@@ -2,8 +2,6 @@
 #include <HttpClient.h>
 #include <RTC.h>
 
-
-
 GET /observations/paris,fr HTTP/1.1
 X-Rapidapi-Host: aerisweather1.p.rapidapi.com
 X-Rapidapi-Key: 0f5f2241d8msh3dc553f7c2e026ap1011a6jsn5509553ca852
@@ -54,5 +52,5 @@ void loop() {
   
   //Calibration
   
-
+55
 }
