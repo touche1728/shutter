@@ -1,26 +1,14 @@
 #include <Encoder.h>
 #include <HttpClient.h>
 #include <RTC.h>
+#include "setup.h"
 
 GET /observations/paris,fr HTTP/1.1
 X-Rapidapi-Host: aerisweather1.p.rapidapi.com
 X-Rapidapi-Key: 0f5f2241d8msh3dc553f7c2e026ap1011a6jsn5509553ca852
 Host: aerisweather1.p.rapidapi.com
 
-// Motor Driver Standby Pin (Drive to HIGH to make motor driver function)
-#define STBY 5
 
-// Motor for string
-Encoder ENCA(12, 11);
-#define PWMA 8
-#define AIN2 7
-#define AIN1 6
-
-// Motor for chain
-Encoder ENCB(10, 9);
-#define BIN1 4
-#define BIN2 3
-#define PWMB 2
 
 //Logic criteria for the system
 //Should be able to keep track of how much the shutters are opened and flipped via motor encoders
@@ -43,14 +31,36 @@ Encoder ENCB(10, 9);
 //Night - based on user preference - ?
 
 void setup() {
-  // put your setup code here, to run once:
-  
+  // Calibration
+  ends("chain", "back");
+  backChainEncoder = chainEncoder.read();
+
+  }
+
+  // Pull the chain/rod in one direction until the motor cannot pull it anymore
+  testChainRod = true;
+  while(testChainRod) {
+    analogWrite(pwmChain, 40);
+    digitalWrite(chainIn1, HIGH);
+    digitalWrite(stringIn1, LOW);
+
+    oldEnc = chainEncoder.read();
+    wait(50);
+    currentEnc = chainEncoder.read();
+
+    if(oldEnc - currentEnc <= 5) {
+      testChainRod = false;
+      closedChainRodEncoder = chainEncoder.read();
+    }
+  }
+        
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   
-  //Calibration
   
-55
+
+
+
 }
