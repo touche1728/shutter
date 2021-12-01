@@ -11,3 +11,5 @@ Pololu motor driver reference:
 https://github.com/rutgers/Micromouse-v2
 ESP8266 hardware reference:
 https://create.arduino.cc/projecthub/PatelDarshil/how-to-communicate-with-esp8266-via-arduino-uno-f6e92f
+Making API calls from OpenWeatherMap:
+https://www.dfrobot.com/blog-917.html

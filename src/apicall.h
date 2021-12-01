@@ -1,13 +1,19 @@
-#include <Arduino.h>
-#include <WiFi.h>
-#include <HTTPClient.h>
-#include <ESP8266HTTPClient.h>
+// #include <Arduino.h>
+// #include <HTTPClient.h>
+// #include <ESP8266HTTPClient.h>
+#include <JsonListener.h>
+#include <JsonStreamingParser.h>
+#ifdef ESP32
+    #include <WiFi.h>
+#else
+    #include <ESP8266WiFi.h>
+#endif
 
-const char ssid = "Rutgers IEEE 2.4";
-const char pswd = "RutgersIEEE"
+const char* ssid = "Rutgers IEEE 2.4";
+const char* pswd = "RutgersIEEE";
 
-const String endpoint = "https://aerisweather1.p.rapidapi.com/sunmoon/piscataway,nj/?rapidapi-key=";
-const String key = "0f5f2241d8msh3dc553f7c2e026ap1011a6jsn5509553ca852";
+const string endpoint = "https://aerisweather1.p.rapidapi.com/sunmoon/piscataway,nj/?rapidapi-key=";
+const string key = "0f5f2241d8msh3dc553f7c2e026ap1011a6jsn5509553ca852";
 
 void wifiSetup() {
     WiFi.begin(ssid,pswd);
@@ -24,8 +30,8 @@ void makeRequest() {
  
     if (httpCode > 0) { // Request success check
         String payload = http.getString();
-        Serial.println(httpCode);
-        Serial.println(payload);
+        // Serial.println(httpCode);
+        // Serial.println(payload);
       }
  
     else {

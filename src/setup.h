@@ -1,3 +1,5 @@
+// #include <Encoder.h>
+
 // Motor Driver Standby Pin (Drive to HIGH to make motor driver function)
 #define STBY 5
 
@@ -49,9 +51,9 @@ void ends(string chain_or_string, string back_or_forth) {
     }
 
     // Test for resistance while the motors run
-    oldEnc = chainEncoder.read();
-    delay(100); \\ 0.1 seconds
-    currentEnc = chainEncoder.read();
+    int oldEnc = chainEncoder.read();
+    delay(100); // 0.1 seconds
+    int currentEnc = chainEncoder.read();
 
     if(abs(oldEnc - currentEnc) <= 5) {
         analogWrite(pwmString, 0);
