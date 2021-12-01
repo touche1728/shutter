@@ -1,0 +1,13 @@
+
+API Source:
+https://rapidapi.com/aerisweather-aerisweather/api/aerisweather1/
+HTTP call link:
+https://aerisweather1.p.rapidapi.com/observations/piscataway,nj/?rapidapi-key=[APIKEY]
+Aerisweather return variables:
+https://www.aerisweather.com/support/docs/api/reference/endpoints/observations/
+ThingPulse weather station code refenced:
+https://github.com/ThingPulse/esp8266-weather-station/tree/master/src
+Pololu motor driver reference:
+https://github.com/rutgers/Micromouse-v2
+ESP8266 hardware reference:
+https://create.arduino.cc/projecthub/PatelDarshil/how-to-communicate-with-esp8266-via-arduino-uno-f6e92f
